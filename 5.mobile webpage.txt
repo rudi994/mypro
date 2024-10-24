@@ -1,0 +1,66 @@
+Index.html:
+6
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Events in JavaScript</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Events in JavaScript</h1>
+<button id="myButton">Click me!</button>
+<div id="myDiv">Hover over me!</div>
+<input id="myInput" type="text" placeholder="Press a key...">
+<form id="myForm">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name">
+<input type="submit" value="Submit">
+</form>
+<a id="myLink" href="#">Click me!</a>
+<script src="/index.js"></script>
+</body>
+</html>
+
+Style.css:
+@media only screen and (max-width: 1200px) {
+#myDiv {
+background-color: #f0f0f0;
+color: #333;
+padding: 15px 25px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+font-size: 18px; /* Increased font size */
+}
+#myDiv:hover {
+background-color: #4CAF50;
+color: white;
+}
+/* Add the following styles for responsiveness */
+body {
+font-family: Arial, sans-serif;
+line-height: 2;
+padding: 25px;
+max-width: 800px;
+margin: 0 auto;
+font-size: 16px; /* Increased base font size */
+}
+h1 {
+font-size: 28px; /* Increased heading font size */
+}
+button, input[type="submit"] {
+padding: 12px;
+margin: 12px 0;
+font-size: 16px; /* Increased button font size */
+}
+form {
+margin: 25px 0;
+}
+input[type="text"] {
+width: 100%;
+padding: 8px;
+margin: 8px 0;
+font-size: 16px; /* Increased input font size */
+}
+}

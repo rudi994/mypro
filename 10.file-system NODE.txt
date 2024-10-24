@@ -1,0 +1,38 @@
+mkdir node-file-system
+cd node-file-system
+
+npm init -y
+
+APP.JS
+const fs = require('fs');
+
+// 1. Create and write to a file
+fs.writeFile('example.txt', 'Hello, this is a sample text file!', (err) => {
+  if (err) throw err;
+  console.log('File created and data written.');
+
+  // 2. Read the contents of a file
+  fs.readFile('example.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log('File content:', data);
+
+    // 3. Append data to the file
+    fs.appendFile('example.txt', '\nAppending some additional text.', (err) => {
+      if (err) throw err;
+      console.log('Data appended.');
+
+      // 4. Rename the file
+      fs.rename('example.txt', 'new_example.txt', (err) => {
+        if (err) throw err;
+        console.log('File renamed.');
+
+        // 5. Delete the file
+        fs.unlink('new_example.txt', (err) => {
+          if (err) throw err;
+          console.log('File deleted.');
+        });
+      });
+    });
+  });
+});
+

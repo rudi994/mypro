@@ -1,0 +1,51 @@
+import React, { useState } from 'react';
+import './App.css';
+function App() {
+ // Initial product list
+ const productList = [
+ "Shlok","Shgam","Vedant","shraddha","viraj","ved","shamala"
+ ];
+ // State to manage products and search value
+ const [products, setProducts] = useState(productList);
+ const [searchVal, setSearchVal] = useState("");
+ // Handler for search button click
+ function handleSearchClick() {
+ if (searchVal === "") {
+ setProducts(productList);
+ return;
+ }
+ // Filter products based on search value
+ const filterBySearch = productList.filter((item) =>
+ item.toLowerCase().includes(searchVal.toLowerCase())
+ );
+ setProducts(filterBySearch);
+ }
+ // Style object for layout
+IT DEPARTMENT SIES GST INP Lab
+4
+ const mystyle = {
+ marginLeft: "600px",
+ marginTop: "20px",
+ fontWeight: "700"
+ };
+ return (
+ <div>
+ <div style={mystyle}>
+ <input
+ type="text"
+ value={searchVal}
+ onChange={e => setSearchVal(e.target.value)}
+ placeholder="Search products..."
+ />
+ <button onClick={handleSearchClick}>Search</button>
+ </div>
+ <div>
+ {products.map((product, index) => (
+ <div key={index} style={mystyle}>
+ {product}
+ </div>
+ ))}
+ </div>
+ </div> );
+}
+export default App

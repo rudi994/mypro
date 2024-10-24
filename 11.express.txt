@@ -1,0 +1,42 @@
+mkdir express-app
+cd express-app
+
+npm init -y
+
+npm install express
+
+APP.JS
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+const port = 3000;
+
+// Middleware to parse URL-encoded data
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Route to serve the HTML form
+app.get('/', (req, res) => {
+  res.send(`
+    <form action="/submit" method="POST">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+      <br>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  `);
+});
+
+// Route to handle form submission
+app.post('/submit', (req, res) => {
+  const { firstName, lastName } = req.body;
+  res.send(`Hello, ${firstName} ${lastName}!`);
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
+});

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Animation</title>
+    <style>
+        #animateImage {
+            width: 400px;
+            position: absolute;
+            top: 400px;
+            left: 0;
+        }
+        body {
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="animateImage" src="Spicy Stickers for Sale.png" alt="Moving Image">
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+'
+
+JS
+var image = document.getElementById("animateImage");
+var position = 0;
+var direction = 1; // 1 for right, -1 for left
+var speed = 2;  // Adjust the speed of animation
+
+function moveImage() {
+    position += direction * speed;
+    image.style.left = position + 'px';
+
+    // Reverse direction when the image hits the edges of the screen
+    if (position > window.innerWidth - image.offsetWidth || position < 0) {
+        direction *= -1;
+    }
+
+    requestAnimationFrame(moveImage);  // Keep the animation running
+}
+
+moveImage();  // Start the animation
